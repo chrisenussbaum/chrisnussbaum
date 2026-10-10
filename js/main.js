@@ -5,7 +5,7 @@
   var CONFIG = {
     // Paste your Calendly event link (e.g. 'https://calendly.com/your-name/30min').
     // While empty, the built-in email request form below is used instead.
-    calendlyUrl: '',
+    calendlyUrl: 'https://calendly.com/chrisenussbaum/lets-chat',
     email: 'chrisenussbaum@gmail.com',
     timezone: 'America/Los_Angeles',
     daysAhead: 21,                 // how far ahead people can book
