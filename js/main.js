@@ -3,6 +3,9 @@
 
   // ---- Site settings: edit these ----
   var CONFIG = {
+    // Paste your Calendly event link (e.g. 'https://calendly.com/your-name/30min').
+    // While empty, the built-in email request form below is used instead.
+    calendlyUrl: '',
     email: 'chrisenussbaum@gmail.com',
     timezone: 'America/Los_Angeles',
     daysAhead: 21,                 // how far ahead people can book
@@ -187,6 +190,42 @@
     a.download = 'call-with-chris.ics';
     document.body.appendChild(a); a.click(); a.remove();
   });
+
+  // ---- Calendly (replaces the email request form when calendlyUrl is set) ----
+  var calendlyStarted = false;
+  function startCalendly(service) {
+    var wrap = $('#calendlyWrap'), embed = $('#calendlyEmbed');
+    var url;
+    try { url = new URL(CONFIG.calendlyUrl); } catch (e) { return; }
+    if (url.hostname !== 'calendly.com' && !/\.calendly\.com$/.test(url.hostname)) return;
+    url.searchParams.set('hide_gdpr_banner', '1');
+    url.searchParams.set('primary_color', 'b4561f');
+    if (service && service !== 'Not sure yet') url.searchParams.set('utm_content', service);
+    $('#bookingForm').hidden = true;
+    $('#confirm').hidden = true;
+    wrap.hidden = false;
+    $('#bookIntro').textContent = 'Pick a day and time that works for you. You\'ll get an instant confirmation and calendar invite.';
+    function init() {
+      embed.innerHTML = '';
+      window.Calendly.initInlineWidget({ url: url.toString(), parentElement: embed });
+    }
+    if (window.Calendly) return init();
+    if (calendlyStarted) return;
+    calendlyStarted = true;
+    var sc = document.createElement('script');
+    sc.src = 'https://assets.calendly.com/assets/external/widget.js';
+    sc.async = true;
+    sc.onload = init;
+    sc.onerror = function () { calendlyStarted = false; };
+    document.head.appendChild(sc);
+  }
+  if (CONFIG.calendlyUrl) {
+    startCalendly();
+    // "Book this" buttons pass the chosen service to Calendly as utm_content
+    document.querySelectorAll('[data-service]').forEach(function (a) {
+      a.addEventListener('click', function () { startCalendly(a.getAttribute('data-service')); });
+    });
+  }
 
   // ---- Quick contact form (opens a pre-filled email) ----
   $('#contactForm').addEventListener('submit', function (e) {

@@ -266,8 +266,13 @@
         <header class="section__head">
           <p class="eyebrow">Book an appointment</p>
           <h2>Let's talk about your project</h2>
-          <p>Pick a day and time for a free 30-minute intro call. I'll confirm by email, usually within one business day. Times shown in Pacific Time.</p>
+          <p id="bookIntro">Pick a day and time for a free 30-minute intro call. I'll confirm by email, usually within one business day. Times shown in Pacific Time.</p>
         </header>
+
+        <div id="calendlyWrap" class="calendly" hidden>
+          <div id="calendlyEmbed" class="calendly__embed" aria-label="Schedule a call"></div>
+          <p class="hint">Scheduler not loading? Email <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> or call <a href="tel:+12066010535">(206) 601-0535</a>.</p>
+        </div>
 
         <form id="bookingForm" class="booking" novalidate>
           <div class="booking__pick">

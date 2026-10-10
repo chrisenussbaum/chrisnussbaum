@@ -4,6 +4,7 @@
   --radius:16px; --shadow:0 10px 30px -12px rgba(60,35,10,.25);
 }
 *{box-sizing:border-box;margin:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -149,6 +150,13 @@ input,select,textarea{display:block;width:100%;margin-top:.3rem;padding:.7rem .8
 .confirm__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 .5rem}
 .confirm a:not(.btn){color:#f0a979}
 .hint a{color:#f0a979}
+
+/* calendly */
+.calendly{background:#fff;border-radius:var(--radius);overflow:hidden;padding:.5rem}
+.calendly__embed{min-width:280px;height:700px}
+.calendly+.booking{margin-top:1.5rem}
+.calendly .hint{color:var(--muted);padding:0 1rem 1rem}
+.calendly .hint a{color:var(--accent)}
 
 /* contact */
 .contact{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
