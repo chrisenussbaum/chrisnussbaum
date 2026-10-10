@@ -11,7 +11,7 @@
     daysAhead: 21,                 // how far ahead people can book
     workDays: [1, 2, 3, 4, 5],     // 0 = Sun ... 6 = Sat
     slots: ['09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00'], // start times, PT
-    callMinutes: 30,
+    callMinutes: 45,
     minLeadHours: 24               // earliest bookable time from now
   };
 
