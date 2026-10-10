@@ -30,7 +30,7 @@
   $('#year').textContent = new Date().getFullYear();
 
   // ---- Reveal on scroll ----
-  var revealEls = document.querySelectorAll('.card, .steps li, .job, .project, .facts li, .contact__card');
+  var revealEls = document.querySelectorAll('.card, .steps li, .job, .project, .sample, .more, .facts li, .contact__card');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
