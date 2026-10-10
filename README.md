@@ -10,4 +10,4 @@ A static, no-build website (HTML/CSS/JS). Open `index.html` or run `python3 -m h
 - **Hosting:** works as-is on GitHub Pages, Netlify, or Vercel.
 
 ## Work sample screenshots
-Cards in the "Work samples" section show a placeholder until you add images. Save screenshots as `assets/work/redapt-website.webp` and `assets/work/redapt-linkedin.webp` (about 1600x1000, top of the page works best). Only share what you're allowed to show publicly.
+Cards in the "Work samples" section show a placeholder until you add images. Save screenshots as `assets/work/redapt-website.webp`, `assets/work/redapt-linkedin.webp`, and `assets/work/redapt-events.webp` (about 1600x1000, top of the page works best). Only share what you're allowed to show publicly.
