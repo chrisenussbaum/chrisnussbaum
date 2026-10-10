@@ -114,6 +114,9 @@ h1,h2,h3,h4{font-family:Fraunces,Georgia,serif;line-height:1.15;color:inherit}
 .sample__shot{display:block;position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--dark),#4a2e1a);overflow:hidden}
 .sample__shot img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0;transition:transform .4s}
 .sample__shot:hover img{transform:scale(1.03)}
+.sample__shot--auto{aspect-ratio:auto;display:flex;align-items:center;background:#e9f3df}
+.sample__shot--auto img{position:static;height:auto}
+.sample__shot--auto.empty{aspect-ratio:16/10}
 .sample__fallback{position:absolute;inset:0;display:none;place-items:center;font-family:Fraunces,serif;font-size:1.6rem;color:#f5ece1;letter-spacing:.02em}
 .sample__shot.empty .sample__fallback{display:grid}
 .sample__shot--live{background:#fff}
