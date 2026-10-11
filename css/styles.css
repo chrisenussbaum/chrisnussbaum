@@ -214,8 +214,9 @@ input,select,textarea{display:block;width:100%;margin-top:.3rem;padding:.7rem .8
 @media (max-width:900px){
   .hero__grid,.about,.booking{grid-template-columns:1fr}
   .hero__photo{order:-1}
-  .hero__photo img{margin-inline:0;max-width:220px;aspect-ratio:1/1;object-position:50% 20%}
-  .hero__photo figcaption{margin-inline:0;text-align:left;max-width:340px}
+  .hero__photo{display:flex;align-items:center;gap:16px}
+  .hero__photo img{width:96px;height:96px;flex-shrink:0;margin:0;border-radius:50%;aspect-ratio:1/1;object-position:50% 20%;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--accent)}
+  .hero__photo figcaption{margin:0;text-align:left;max-width:none;font-size:.9rem;line-height:1.4}
   .hero__photo::before{display:none}
   .stats{grid-template-columns:repeat(2,1fr);transform:none;margin-top:40px}
   .hero{margin-bottom:0}
@@ -234,6 +235,9 @@ input,select,textarea{display:block;width:100%;margin-top:.3rem;padding:.7rem .8
   .nav__links .btn{text-align:center;margin-top:.5rem}
 }
 @media (max-width:600px){
+  .hero{padding-top:32px}
+  .eyebrow{font-size:.72rem;letter-spacing:.06em;align-items:flex-start;line-height:1.4}
+  .eyebrow .dot{margin-top:.3em}
   .section{padding:64px 0}
   .cards,.steps,.skills,.quick__row{grid-template-columns:1fr}
   .booking{padding:1.25rem}
