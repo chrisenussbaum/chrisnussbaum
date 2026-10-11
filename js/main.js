@@ -199,7 +199,7 @@
     try { url = new URL(CONFIG.calendlyUrl); } catch (e) { return; }
     if (url.hostname !== 'calendly.com' && !/\.calendly\.com$/.test(url.hostname)) return;
     url.searchParams.set('hide_gdpr_banner', '1');
-    url.searchParams.set('primary_color', 'b4561f');
+    url.searchParams.set('primary_color', '5b47db');
     if (service && service !== 'Not sure yet') url.searchParams.set('utm_content', service);
     $('#bookingForm').hidden = true;
     $('#confirm').hidden = true;
