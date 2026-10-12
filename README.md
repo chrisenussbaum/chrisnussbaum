@@ -32,4 +32,4 @@ Writing cards (Iterate.ai posts and Medium) live in `projects.html` under the **
 Every project card uses a static screenshot from `assets/work/` (no iframes, so scrolling stays smooth on phones). The coded-project screenshots are `the-cn-network.webp`, `moments.webp`, `christmas-giveaway-2025.webp`, and `christmas-giveaway-2024.webp`; replace a file to update its card. A desktop-width capture around 1600x1000 works best.
 
 ## Design project images
-Design cards (`projects.html`, Design filter) show screenshots from `assets/work/`: `fundamoment-figma.webp`, `fundamoment-flutterflow.webp`, `singlet-every-moment-matters.webp`, and `singlet-redapt.webp`. Until a file exists, the card shows its title on a light purple background.
+Design cards (`projects.html`, Design filter) show screenshots from `assets/work/`: `fundamoment-figma.webp`, `fundamoment-flutterflow.webp`, `singlet-every-moment-matters.webp`, and `singlet-redapt.webp`. All four are in place (phone and singlet mockups on a soft purple canvas); replace a file to update its card.
