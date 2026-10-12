@@ -171,6 +171,8 @@ h1,h2,h3,h4{text-wrap:balance;font-family:Inter,system-ui,sans-serif;font-weight
 .sample__shot:hover img{transform:scale(1.03)}
 .sample__shot--auto{aspect-ratio:auto;display:flex;align-items:center;background:var(--gray);border-bottom:1px solid var(--line)}
 .sample__shot--auto img{position:static;height:auto}
+.sample__shot--contain{background:var(--white);border-bottom:1px solid var(--line)}
+.sample__shot--contain img{object-fit:contain;object-position:center}
 .sample__shot--auto.empty{aspect-ratio:16/10}
 .sample__fallback{z-index:0;position:absolute;inset:0;display:none;place-items:center;font-weight:800;letter-spacing:-.02em;font-size:1.6rem;color:var(--ink)}
 .sample__shot.empty .sample__fallback{display:grid}
