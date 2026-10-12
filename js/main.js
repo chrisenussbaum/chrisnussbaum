@@ -45,7 +45,7 @@
     btn.addEventListener('click', function () {
       var f = btn.getAttribute('data-filter');
       filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat').split(' ').indexOf(f) !== -1); });
       loadPreviews();
     });
   });
@@ -71,6 +71,13 @@
     if (previewIO) previewIO.observe(box);
     if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
   });
+
+  // projects.html#writing opens with that filter applied
+  var hashFilter = window.location.hash.replace('#', '');
+  if (hashFilter) {
+    var preset = document.querySelector('.filter[data-filter="' + hashFilter + '"]');
+    if (preset) preset.click();
+  }
 
   // ---- Booking & contact (book.html only) ----
   // ?service=Running%20Programs preselects the service (and is passed to Calendly)
