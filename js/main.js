@@ -45,7 +45,7 @@
     btn.addEventListener('click', function () {
       var f = btn.getAttribute('data-filter');
       filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat').split(' ').indexOf(f) !== -1); });
       loadPreviews();
     });
   });
