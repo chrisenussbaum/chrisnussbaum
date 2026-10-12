@@ -46,72 +46,8 @@
       var f = btn.getAttribute('data-filter');
       filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
       cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat').split(' ').indexOf(f) !== -1); });
-      loadPreviews();
     });
   });
-
-  // ---- Live previews ----
-  // Each preview is a full 1280px-wide desktop page inside a scaled iframe, which is heavy
-  // (scripts, images, GIFs). Phones kill tabs that use too much memory, so:
-  //  - phones / data-saver: nothing auto-loads; tap "Load live preview", and only one stays live
-  //  - desktop: load when near the viewport and unload once scrolled well past, so only the rows
-  //    around the viewport are ever alive
-  var PREVIEW_W = 1280, BLANK = 'about:blank';
-  var previews = Array.prototype.slice.call(document.querySelectorAll('[data-preview]'));
-  function lowPower() {
-    return window.matchMedia('(max-width: 900px), (hover: none) and (pointer: coarse)').matches ||
-      !!(navigator.connection && navigator.connection.saveData);
-  }
-  function frameOf(box) { return box.querySelector('iframe'); }
-  function isLive(box) { return box.getAttribute('data-live') === '1'; }
-  function scalePreview(box) { box.style.setProperty('--s', (box.clientWidth / PREVIEW_W).toFixed(4)); }
-  function unloadPreview(box) {
-    var f = frameOf(box);
-    if (!f || !isLive(box)) return;
-    box.setAttribute('data-live', '0');
-    f.classList.remove('loaded');
-    f.setAttribute('src', BLANK); // navigating away frees the page, its scripts, and decoded images/GIFs
-    var btn = box.querySelector('.preview__btn');
-    if (btn) { btn.textContent = 'Load live preview'; btn.setAttribute('aria-pressed', 'false'); }
-  }
-  function unloadAll(except) { previews.forEach(function (b) { if (b !== except) unloadPreview(b); }); }
-  function loadPreview(box) {
-    var f = frameOf(box);
-    if (!f || isLive(box)) return;
-    if (lowPower()) unloadAll(box); // phones: one live preview at a time
-    box.setAttribute('data-live', '1');
-    f.setAttribute('src', box.getAttribute('data-preview'));
-    var btn = box.querySelector('.preview__btn');
-    if (btn) { btn.textContent = 'Stop live preview'; btn.setAttribute('aria-pressed', 'true'); }
-  }
-  function loadPreviews() { // after the filter changes: rescale, and free anything now hidden
-    previews.forEach(function (box) {
-      scalePreview(box);
-      if (box.closest('[hidden]')) unloadPreview(box);
-    });
-  }
-  previews.forEach(function (box) {
-    var f = frameOf(box);
-    scalePreview(box);
-    if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
-    if (f) f.addEventListener('load', function () { if (isLive(box)) f.classList.add('loaded'); });
-    if (lowPower()) {
-      var btn = document.createElement('button');
-      btn.type = 'button'; btn.className = 'preview__btn'; btn.setAttribute('aria-pressed', 'false');
-      btn.textContent = 'Load live preview';
-      btn.addEventListener('click', function () { if (isLive(box)) unloadPreview(box); else loadPreview(box); });
-      box.appendChild(btn);
-    }
-  });
-  if (!lowPower() && 'IntersectionObserver' in window) {
-    var nearIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting && !en.target.closest('[hidden]')) loadPreview(en.target); });
-    }, { rootMargin: '200px 0px' });
-    var farIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (!en.isIntersecting) unloadPreview(en.target); });
-    }, { rootMargin: '800px 0px' });
-    previews.forEach(function (box) { nearIO.observe(box); farIO.observe(box); });
-  }
 
   // projects.html#writing opens with that filter applied
   var hashFilter = window.location.hash.replace('#', '');
