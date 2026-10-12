@@ -27,3 +27,6 @@ Icons are an original two-tone SVG set (indigo stroke + purple detail) defined o
 
 ## Writing samples
 Writing cards (Iterate.ai posts and Medium) live in `projects.html` under the **Writing** filter; `projects.html#writing` opens with that filter on. To show a screenshot on a card, save it as `assets/work/iterate-synthetic-data.webp`, `iterate-fourth-wave.webp`, `iterate-ai-bias.webp`, or `medium.webp`; until then the card shows the title on a purple gradient.
+
+## Live previews and memory
+Coded-project previews are full 1280px desktop pages in scaled iframes, which is heavy on phones. On phones, touch devices and data-saver mode nothing loads automatically: each card has a "Load live preview" button and only one preview stays live at a time. On desktop, previews load as they near the viewport and unload once scrolled well past. See the "Live previews" block in `js/main.js`.
