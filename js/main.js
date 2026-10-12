@@ -30,7 +30,7 @@
   $('#year').textContent = new Date().getFullYear();
 
   // ---- Reveal on scroll ----
-  var revealEls = document.querySelectorAll('.card, .steps li, .job, .project, .sample, .more, .facts li, .contact__card');
+  var revealEls = document.querySelectorAll('.card, .steps li, .job, .summary, .sample, .more, .facts li, .contact__card');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
@@ -45,6 +45,62 @@
       var v = a.getAttribute('data-service');
       Array.prototype.forEach.call(serviceSelect.options, function (o) { if (o.text === v) serviceSelect.value = o.value || o.text; });
     });
+  });
+
+  // ---- Active nav link while scrolling ----
+  var navLinks = document.querySelectorAll('.nav__link');
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function (a) {
+          var on = a.getAttribute('href') === '#' + en.target.id;
+          a.classList.toggle('is-active', on);
+          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['portfolio', 'services', 'projects'].forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
+    var clear = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) navLinks.forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['book', 'contact'].forEach(function (id) { var el = document.getElementById(id); if (el) clear.observe(el); });
+  }
+
+  // ---- Project filters ----
+  var filters = document.querySelectorAll('.filter');
+  var cards = document.querySelectorAll('#projectGrid .sample');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+      loadPreviews();
+    });
+  });
+
+  // ---- Live previews: scaled iframes, loaded only when near the viewport ----
+  var PREVIEW_W = 1280;
+  var previews = document.querySelectorAll('[data-preview]');
+  function scalePreview(box) { box.style.setProperty('--s', (box.clientWidth / PREVIEW_W).toFixed(4)); }
+  var previewIO = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var box = en.target, frame = box.querySelector('iframe');
+      if (frame && !frame.getAttribute('src')) {
+        frame.addEventListener('load', function () { frame.classList.add('loaded'); });
+        frame.setAttribute('src', box.getAttribute('data-preview'));
+      }
+      previewIO.unobserve(box);
+    });
+  }, { rootMargin: '400px 0px' }) : null;
+  function loadPreviews() { previews.forEach(function (box) { scalePreview(box); }); }
+  previews.forEach(function (box) {
+    scalePreview(box);
+    if (previewIO) previewIO.observe(box);
+    if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
   });
 
   // ---- Booking ----
