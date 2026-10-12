@@ -24,3 +24,6 @@ The header and footer are repeated in each file (no build step), so update the n
 
 ## Icons
 Icons are an original two-tone SVG set (indigo stroke + purple detail) defined once per page as an inline `<symbol>` sprite and used with `<svg class="icon"><use href="#i-name"/></svg>`. To add or swap one, edit the sprite near the top of `index.html` / `services.html`. (Flaticon assets, if used later, need an account download and attribution under their free license.)
+
+## Writing samples
+Writing cards (Iterate.ai posts and Medium) live in `projects.html` under the **Writing** filter; `projects.html#writing` opens with that filter on. To show a screenshot on a card, save it as `assets/work/iterate-synthetic-data.webp`, `iterate-fourth-wave.webp`, `iterate-ai-bias.webp`, or `medium.webp`; until then the card shows the title on a purple gradient.

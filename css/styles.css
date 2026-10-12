@@ -150,6 +150,9 @@ h1,h2,h3,h4{text-wrap:balance;font-family:Inter,system-ui,sans-serif;font-weight
 .job__label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-2);margin:1.1rem 0 .4rem}
 .job ul.tags{display:flex;margin:0;gap:.4rem}
 .job .tags li{background:var(--white);font-size:.8rem;padding:.2rem .65rem}
+.job .links{list-style:none;margin:0;padding:0;display:grid;gap:.35rem;font-size:.95rem}
+.job .links a{font-weight:600;text-decoration:none}
+.job .links a:hover{text-decoration:underline}
 .job__more{margin-top:.6rem}
 .job__more summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:.95rem;padding:.25rem 0}
 .job__more summary:hover{color:var(--accent-2)}
@@ -192,6 +195,7 @@ h1,h2,h3,h4{text-wrap:balance;font-family:Inter,system-ui,sans-serif;font-weight
 .more h3{font-size:1.3rem;margin-bottom:.4rem}
 .more p{color:rgba(0,0,0,.72);font-size:.95rem;max-width:46em}
 .more .btn{flex-shrink:0}
+.more--inline{margin:2rem 0 0}
 
 /* skills */
 .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 3rem}

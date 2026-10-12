@@ -72,6 +72,13 @@
     if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
   });
 
+  // projects.html#writing opens with that filter applied
+  var hashFilter = window.location.hash.replace('#', '');
+  if (hashFilter) {
+    var preset = document.querySelector('.filter[data-filter="' + hashFilter + '"]');
+    if (preset) preset.click();
+  }
+
   // ---- Booking & contact (book.html only) ----
   // ?service=Running%20Programs preselects the service (and is passed to Calendly)
   var svcParam = new URLSearchParams(window.location.search).get('service');
