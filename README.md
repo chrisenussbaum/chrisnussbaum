@@ -13,7 +13,11 @@ A static, no-build website (HTML/CSS/JS). Open `index.html` or run `python3 -m h
 Cards in the "Work samples" section show a placeholder until you add images. Save screenshots as `assets/work/redapt-website.webp`, `assets/work/redapt-linkedin.webp`, and `assets/work/redapt-events.webp` (about 1600x1000, top of the page works best). Only share what you're allowed to show publicly.
 
 ## Site structure
-- **Portfolio** (`#portfolio`): built from the resume: summary, experience, skills, education & honors, resume download (`assets/Christopher_Nussbaum_Resume_2026.pdf`).
-- **Services** (`#services`): freelance offerings (marketing & web, plus running programs and resume copy) and how engagements work.
-- **Projects** (`#projects`): filterable cards. Coding projects show a live, scaled iframe preview (loaded only when scrolled near); add a new one by copying a `data-preview` card in `index.html`.
-- **Book a call** (`#book`, Calendly) and **Contact** (`#contact`).
+Five static pages sharing one stylesheet (`css/styles.css`) and one script (`js/main.js`):
+- `index.html`: home: intro, highlights, and a "where to start" fork.
+- `portfolio.html`: built from the resume: summary, experience, skills, education & honors, resume PDF (`assets/Christopher_Nussbaum_Resume_2026.pdf`).
+- `services.html`: freelance offerings and how engagements work.
+- `projects.html`: filterable project cards. Coding projects show a live, scaled iframe preview (`data-preview`); other cards use screenshots in `assets/work/`.
+- `book.html`: Calendly booking (falls back to an email request form if `calendlyUrl` is blank) and contact options. "Book this" links use `book.html?service=...` to preselect a service.
+
+The header and footer are repeated in each file (no build step), so update the nav in all five when it changes.

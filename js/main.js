@@ -38,37 +38,6 @@
     revealEls.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
   }
 
-  // ---- "Book this" buttons preselect the service ----
-  var serviceSelect = $('#serviceSelect');
-  document.querySelectorAll('[data-service]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var v = a.getAttribute('data-service');
-      Array.prototype.forEach.call(serviceSelect.options, function (o) { if (o.text === v) serviceSelect.value = o.value || o.text; });
-    });
-  });
-
-  // ---- Active nav link while scrolling ----
-  var navLinks = document.querySelectorAll('.nav__link');
-  if ('IntersectionObserver' in window) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function (a) {
-          var on = a.getAttribute('href') === '#' + en.target.id;
-          a.classList.toggle('is-active', on);
-          if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-        });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['portfolio', 'services', 'projects'].forEach(function (id) { var el = document.getElementById(id); if (el) spy.observe(el); });
-    var clear = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) navLinks.forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
-      });
-    }, { rootMargin: '-45% 0px -50% 0px' });
-    ['book', 'contact'].forEach(function (id) { var el = document.getElementById(id); if (el) clear.observe(el); });
-  }
-
   // ---- Project filters ----
   var filters = document.querySelectorAll('.filter');
   var cards = document.querySelectorAll('#projectGrid .sample');
@@ -103,7 +72,15 @@
     if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
   });
 
-  // ---- Booking ----
+  // ---- Booking & contact (book.html only) ----
+  // ?service=Running%20Programs preselects the service (and is passed to Calendly)
+  var svcParam = new URLSearchParams(window.location.search).get('service');
+  if ($('#bookingForm')) {
+  var serviceSelect = $('#serviceSelect');
+  if (svcParam && serviceSelect) {
+    Array.prototype.forEach.call(serviceSelect.options, function (o) { if (o.text === svcParam) serviceSelect.value = o.value || o.text; });
+  }
+
   // Slots are computed in Pacific Time by converting a PT wall-clock time to a UTC instant.
   function ptOffsetMinutes(utcMs) {
     var parts = new Intl.DateTimeFormat('en-US', {
@@ -275,13 +252,7 @@
     sc.onerror = function () { calendlyStarted = false; };
     document.head.appendChild(sc);
   }
-  if (CONFIG.calendlyUrl) {
-    startCalendly();
-    // "Book this" buttons pass the chosen service to Calendly as utm_content
-    document.querySelectorAll('[data-service]').forEach(function (a) {
-      a.addEventListener('click', function () { startCalendly(a.getAttribute('data-service')); });
-    });
-  }
+  if (CONFIG.calendlyUrl) startCalendly(svcParam);
 
   // ---- Quick contact form (opens a pre-filled email) ----
   $('#contactForm').addEventListener('submit', function (e) {
@@ -293,4 +264,5 @@
     var body = f.message.value.trim() + '\n\n-- ' + f.name.value.trim() + ' (' + f.email.value.trim() + ')';
     window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Website message from ' + f.name.value.trim()) + '&body=' + encodeURIComponent(body);
   });
+  }
 })();
