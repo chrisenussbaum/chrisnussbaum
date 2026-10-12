@@ -21,3 +21,6 @@ Five static pages sharing one stylesheet (`css/styles.css`) and one script (`js/
 - `book.html`: Calendly booking (falls back to an email request form if `calendlyUrl` is blank) and contact options. "Book this" links use `book.html?service=...` to preselect a service.
 
 The header and footer are repeated in each file (no build step), so update the nav in all five when it changes.
+
+## Icons
+Icons are an original two-tone SVG set (indigo stroke + purple detail) defined once per page as an inline `<symbol>` sprite and used with `<svg class="icon"><use href="#i-name"/></svg>`. To add or swap one, edit the sprite near the top of `index.html` / `services.html`. (Flaticon assets, if used later, need an account download and attribution under their free license.)
