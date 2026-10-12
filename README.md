@@ -17,7 +17,7 @@ Five static pages sharing one stylesheet (`css/styles.css`) and one script (`js/
 - `index.html`: home: intro, highlights, and a "where to start" fork.
 - `portfolio.html`: built from the resume: summary, experience, skills, education & honors, resume PDF (`assets/Christopher_Nussbaum_Resume_2026.pdf`).
 - `services.html`: freelance offerings and how engagements work.
-- `projects.html`: filterable project cards. Coding projects show a live, scaled iframe preview (`data-preview`); other cards use screenshots in `assets/work/`.
+- `projects.html`: filterable project cards. every card uses a static screenshot from `assets/work/`.
 - `book.html`: Calendly booking (falls back to an email request form if `calendlyUrl` is blank) and contact options. "Book this" links use `book.html?service=...` to preselect a service.
 
 The header and footer are repeated in each file (no build step), so update the nav in all five when it changes.
@@ -28,5 +28,5 @@ Icons are an original two-tone SVG set (indigo stroke + purple detail) defined o
 ## Writing samples
 Writing cards (Iterate.ai posts and Medium) live in `projects.html` under the **Writing** filter; `projects.html#writing` opens with that filter on. To show a screenshot on a card, save it as `assets/work/iterate-synthetic-data.webp`, `iterate-fourth-wave.webp`, `iterate-ai-bias.webp`, or `medium.webp`; until then the card shows the title on a purple gradient.
 
-## Live previews and memory
-Coded-project previews are full 1280px desktop pages in scaled iframes, which is heavy on phones. On phones, touch devices and data-saver mode nothing loads automatically: each card has a "Load live preview" button and only one preview stays live at a time. On desktop, previews load as they near the viewport and unload once scrolled well past. See the "Live previews" block in `js/main.js`.
+## Project screenshots
+Every project card uses a static screenshot from `assets/work/` (no iframes, so scrolling stays smooth on phones). The coded-project screenshots are `the-cn-network.webp`, `moments.webp`, `christmas-giveaway-2025.webp`, and `christmas-giveaway-2024.webp`; replace a file to update its card. A desktop-width capture around 1600x1000 works best.
