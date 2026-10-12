@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a call | Chris Nussbaum</title>
+  <meta name="description" content="Book a free 45-minute intro call with Chris Nussbaum, or reach out by phone, email, or LinkedIn.">
+  <meta property="og:title" content="Book a call | Chris Nussbaum">
+  <meta property="og:description" content="B2B marketing specialist open to new roles and freelance projects. Portfolio, services, and projects.">
+  <meta property="og:image" content="assets/chris.webp">
+  <meta name="theme-color" content="#5B47DB">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span></button>
+      <nav id="menu" class="nav__links" aria-label="Primary">
+        <a href="portfolio.html" class="nav__link">Portfolio</a>
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="book.html" class="btn btn--small" aria-current="page">Book a call</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- BOOKING -->
+    <section class="section section--primary" id="book">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Book a call</p>
+          <h1>Let's talk</h1>
+          <p id="bookIntro">Hiring, or have a project in mind? Pick a day and time for a free 45-minute intro call. I'll confirm by email, usually within one business day. Times shown in Pacific Time.</p>
+        </header>
+
+        <div id="calendlyWrap" class="calendly" hidden>
+          <div id="calendlyEmbed" class="calendly__embed" aria-label="Schedule a call"></div>
+          <p class="hint">Scheduler not loading? Email <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> or call <a href="tel:+12066010535">(206) 601-0535</a>.</p>
+        </div>
+
+        <form id="bookingForm" class="booking" novalidate>
+          <div class="booking__pick">
+            <fieldset>
+              <legend>1. Choose a date</legend>
+              <div class="dates" id="dates" role="radiogroup" aria-label="Available dates"></div>
+            </fieldset>
+            <fieldset>
+              <legend>2. Choose a time (PT)</legend>
+              <div class="times" id="times" role="radiogroup" aria-label="Available times"></div>
+              <p class="hint" id="timeHint">Select a date to see times.</p>
+            </fieldset>
+          </div>
+
+          <div class="booking__details">
+            <fieldset>
+              <legend>3. Your details</legend>
+              <label>Name <input name="name" autocomplete="name" required></label>
+              <label>Email <input name="email" type="email" autocomplete="email" required></label>
+              <label>Phone <span class="opt">(optional)</span> <input name="phone" type="tel" autocomplete="tel"></label>
+              <label>Service
+                <select name="service" id="serviceSelect">
+                  <option>Not sure yet</option>
+                  <option>Job opportunity</option>
+                  <option>Paid Media Management</option>
+                  <option>Demand Generation Programs</option>
+                  <option>Email &amp; HubSpot Operations</option>
+                  <option>Landing Pages &amp; Web Updates</option>
+                  <option>Webinars &amp; Events</option>
+                  <option>Content &amp; Social Media</option>
+                  <option>Running Programs</option>
+                  <option>Resume Copy Improvements</option>
+                </select>
+              </label>
+              <label>How should I reach you?
+                <select name="method"><option>Video call</option><option>Phone call</option></select>
+              </label>
+              <label>Tell me about your project <span class="opt">(optional)</span>
+                <textarea name="notes" rows="3" placeholder="Goals, timeline, budget range…"></textarea>
+              </label>
+              <p class="error" id="formError" role="alert" hidden></p>
+              <button type="submit" class="btn btn--light">Request this appointment</button>
+              <p class="hint">This opens a pre-filled email to me. Nothing is booked until I confirm.</p>
+            </fieldset>
+          </div>
+        </form>
+
+        <div class="confirm" id="confirm" hidden tabindex="-1">
+          <h3>Almost done: send the email</h3>
+          <p id="confirmText"></p>
+          <div class="confirm__actions">
+            <a class="btn btn--light" id="mailLink" href="#">Open email draft</a>
+            <button class="btn btn--ghost-light" type="button" id="icsBtn">Add to my calendar (.ics)</button>
+            <button class="btn btn--ghost-light" type="button" id="againBtn">Change details</button>
+          </div>
+          <p class="hint">Email app didn't open? Send your request to <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> or text/call <a href="tel:+12066010535">(206) 601-0535</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Contact</p>
+          <h2>Prefer to reach out directly?</h2>
+        </header>
+        <div class="contact">
+          <a class="contact__card" href="tel:+12066010535">
+            <span class="contact__label">Phone</span><strong>(206) 601-0535</strong><span>Call or text</span>
+          </a>
+          <a class="contact__card" href="mailto:chrisenussbaum@gmail.com">
+            <span class="contact__label">Email</span><strong>chrisenussbaum@gmail.com</strong><span>Reply within one business day</span>
+          </a>
+          <a class="contact__card" href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">
+            <span class="contact__label">LinkedIn</span><strong>chris-nussbaum-</strong><span>Connect or message</span>
+          </a>
+        </div>
+
+        <form id="contactForm" class="quick" novalidate>
+          <h3>Send a quick message</h3>
+          <div class="quick__row">
+            <label>Name <input name="name" autocomplete="name" required></label>
+            <label>Email <input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <label>Message <textarea name="message" rows="4" required></textarea></label>
+          <p class="error" id="contactError" role="alert" hidden></p>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="projects.html">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
+      <p><a href="tel:+12066010535">(206) 601-0535</a> · <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> · <a href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

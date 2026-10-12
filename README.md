@@ -11,3 +11,16 @@ A static, no-build website (HTML/CSS/JS). Open `index.html` or run `python3 -m h
 
 ## Work sample screenshots
 Cards in the "Work samples" section show a placeholder until you add images. Save screenshots as `assets/work/redapt-website.webp`, `assets/work/redapt-linkedin.webp`, and `assets/work/redapt-events.webp` (about 1600x1000, top of the page works best). Only share what you're allowed to show publicly.
+
+## Site structure
+Five static pages sharing one stylesheet (`css/styles.css`) and one script (`js/main.js`):
+- `index.html`: home: intro, highlights, and a "where to start" fork.
+- `portfolio.html`: built from the resume: summary, experience, skills, education & honors, resume PDF (`assets/Christopher_Nussbaum_Resume_2026.pdf`).
+- `services.html`: freelance offerings and how engagements work.
+- `projects.html`: filterable project cards. Coding projects show a live, scaled iframe preview (`data-preview`); other cards use screenshots in `assets/work/`.
+- `book.html`: Calendly booking (falls back to an email request form if `calendlyUrl` is blank) and contact options. "Book this" links use `book.html?service=...` to preselect a service.
+
+The header and footer are repeated in each file (no build step), so update the nav in all five when it changes.
+
+## Icons
+Icons are an original two-tone SVG set (indigo stroke + purple detail) defined once per page as an inline `<symbol>` sprite and used with `<svg class="icon"><use href="#i-name"/></svg>`. To add or swap one, edit the sprite near the top of `index.html` / `services.html`. (Flaticon assets, if used later, need an account download and attribution under their free license.)

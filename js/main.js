@@ -30,7 +30,7 @@
   $('#year').textContent = new Date().getFullYear();
 
   // ---- Reveal on scroll ----
-  var revealEls = document.querySelectorAll('.card, .steps li, .job, .project, .sample, .more, .facts li, .contact__card');
+  var revealEls = document.querySelectorAll('.card, .steps li, .job, .summary, .sample, .more, .facts li, .contact__card');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
@@ -38,16 +38,49 @@
     revealEls.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
   }
 
-  // ---- "Book this" buttons preselect the service ----
-  var serviceSelect = $('#serviceSelect');
-  document.querySelectorAll('[data-service]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var v = a.getAttribute('data-service');
-      Array.prototype.forEach.call(serviceSelect.options, function (o) { if (o.text === v) serviceSelect.value = o.value || o.text; });
+  // ---- Project filters ----
+  var filters = document.querySelectorAll('.filter');
+  var cards = document.querySelectorAll('#projectGrid .sample');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      filters.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+      loadPreviews();
     });
   });
 
-  // ---- Booking ----
+  // ---- Live previews: scaled iframes, loaded only when near the viewport ----
+  var PREVIEW_W = 1280;
+  var previews = document.querySelectorAll('[data-preview]');
+  function scalePreview(box) { box.style.setProperty('--s', (box.clientWidth / PREVIEW_W).toFixed(4)); }
+  var previewIO = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var box = en.target, frame = box.querySelector('iframe');
+      if (frame && !frame.getAttribute('src')) {
+        frame.addEventListener('load', function () { frame.classList.add('loaded'); });
+        frame.setAttribute('src', box.getAttribute('data-preview'));
+      }
+      previewIO.unobserve(box);
+    });
+  }, { rootMargin: '400px 0px' }) : null;
+  function loadPreviews() { previews.forEach(function (box) { scalePreview(box); }); }
+  previews.forEach(function (box) {
+    scalePreview(box);
+    if (previewIO) previewIO.observe(box);
+    if ('ResizeObserver' in window) new ResizeObserver(function () { scalePreview(box); }).observe(box);
+  });
+
+  // ---- Booking & contact (book.html only) ----
+  // ?service=Running%20Programs preselects the service (and is passed to Calendly)
+  var svcParam = new URLSearchParams(window.location.search).get('service');
+  if ($('#bookingForm')) {
+  var serviceSelect = $('#serviceSelect');
+  if (svcParam && serviceSelect) {
+    Array.prototype.forEach.call(serviceSelect.options, function (o) { if (o.text === svcParam) serviceSelect.value = o.value || o.text; });
+  }
+
   // Slots are computed in Pacific Time by converting a PT wall-clock time to a UTC instant.
   function ptOffsetMinutes(utcMs) {
     var parts = new Intl.DateTimeFormat('en-US', {
@@ -219,13 +252,7 @@
     sc.onerror = function () { calendlyStarted = false; };
     document.head.appendChild(sc);
   }
-  if (CONFIG.calendlyUrl) {
-    startCalendly();
-    // "Book this" buttons pass the chosen service to Calendly as utm_content
-    document.querySelectorAll('[data-service]').forEach(function (a) {
-      a.addEventListener('click', function () { startCalendly(a.getAttribute('data-service')); });
-    });
-  }
+  if (CONFIG.calendlyUrl) startCalendly(svcParam);
 
   // ---- Quick contact form (opens a pre-filled email) ----
   $('#contactForm').addEventListener('submit', function (e) {
@@ -237,4 +264,5 @@
     var body = f.message.value.trim() + '\n\n-- ' + f.name.value.trim() + ' (' + f.email.value.trim() + ')';
     window.location.href = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Website message from ' + f.name.value.trim()) + '&body=' + encodeURIComponent(body);
   });
+  }
 })();
