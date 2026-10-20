@@ -33,3 +33,6 @@ Every project card uses a static screenshot from `assets/work/` (no iframes, so 
 
 ## Design project images
 Design cards (`projects.html`, Design filter) show screenshots from `assets/work/`: `fundamoment-figma.webp`, `fundamoment-flutterflow.webp`, `singlet-every-moment-matters.webp`, and `singlet-redapt.webp`. All four are in place (phone and singlet mockups on a soft purple canvas); replace a file to update its card.
+
+## Custom domain
+The site is served at **https://christophernussbaum.com** (GitHub Pages custom domain; the `CNAME` file in the repo root holds the domain, and GoDaddy DNS points the apex to GitHub's four A records with `www` as a CNAME to `chrisenussbaum.github.io`). Canonical links, Open Graph tags, the JSON-LD data, `robots.txt`, and `sitemap.xml` all use this domain; update them together if it ever changes. GitHub Pages currently publishes from the `claude/determined-maxwell-xyn5ku` branch, so pushing to that branch deploys the site, and the `CNAME` file must stay in it.
