@@ -23,6 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Visitors arriving via an old ".html" address see the clean one (custom domain only)
+    (function () {
+      var h = location.hostname;
+      if (h !== 'christophernussbaum.com' && h !== 'www.christophernussbaum.com') return;
+      var p = location.pathname, c = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+      if (c !== p && window.history && history.replaceState) history.replaceState(null, '', c + location.search + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
   {
@@ -58,13 +67,13 @@
 
   <header class="nav" id="top">
     <div class="wrap nav__inner">
-      <a href="index.html" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
+      <a href="./" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span></button>
       <nav id="menu" class="nav__links" aria-label="Primary">
-        <a href="portfolio.html" class="nav__link">Portfolio</a>
-        <a href="services.html" class="nav__link">Services</a>
-        <a href="projects.html" class="nav__link">Projects</a>
-        <a href="book.html" class="btn btn--small">Book a call</a>
+        <a href="portfolio" class="nav__link">Portfolio</a>
+        <a href="services" class="nav__link">Services</a>
+        <a href="projects" class="nav__link">Projects</a>
+        <a href="book" class="btn btn--small">Book a call</a>
       </nav>
     </div>
   </header>
@@ -78,9 +87,9 @@
           <h1>Hi, I'm Chris. <em>Tell me what you're working on.</em></h1>
           <p class="lead">I'm a B2B marketer with 4+ years running paid media, email, and web programs for global tech leaders including AWS, Microsoft, and Intel. I'm open to new full-time roles, and I take on freelance projects for teams and individuals who need a hand.</p>
           <div class="hero__cta">
-            <a href="portfolio.html" class="btn">View portfolio</a>
-            <a href="services.html" class="btn btn--ghost">Explore services</a>
-            <a href="projects.html" class="btn btn--ghost">See projects</a>
+            <a href="portfolio" class="btn">View portfolio</a>
+            <a href="services" class="btn btn--ghost">Explore services</a>
+            <a href="projects" class="btn btn--ghost">See projects</a>
           </div>
           <ul class="hero__contact">
             <li><a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v8.6l2.8-2.8a1 1 0 1 1 1.4 1.4l-4.5 4.5a1 1 0 0 1-1.4 0L6.8 11.2a1 1 0 1 1 1.4-1.4L11 12.6V4a1 1 0 0 1 1-1zM5 19h14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2z"/></svg>Download resume</a></li>
@@ -112,21 +121,21 @@
           <p>Whether you're hiring or have a project in mind, here's the quickest way in.</p>
         </header>
         <div class="paths">
-          <a class="path" href="portfolio.html">
+          <a class="path" href="portfolio">
             <span class="path__icon" aria-hidden="true"><svg class="icon"><use href="#i-briefcase"/></svg></span>
             <span class="path__kicker">Hiring?</span>
             <strong>Portfolio</strong>
             <span>My experience, skills, and results, built from my resume, with a PDF to download.</span>
             <span class="path__go">View portfolio →</span>
           </a>
-          <a class="path" href="services.html">
+          <a class="path" href="services">
             <span class="path__icon" aria-hidden="true"><svg class="icon"><use href="#i-lifebuoy"/></svg></span>
             <span class="path__kicker">Need a hand?</span>
             <strong>Services</strong>
             <span>Freelance marketing, web and app design, plus running programs, resume copy, and custom apparel design.</span>
             <span class="path__go">Explore services →</span>
           </a>
-          <a class="path" href="projects.html">
+          <a class="path" href="projects">
             <span class="path__icon" aria-hidden="true"><svg class="icon"><use href="#i-compass"/></svg></span>
             <span class="path__kicker">Curious?</span>
             <strong>Projects</strong>
@@ -141,14 +150,14 @@
       <div class="wrap">
         <h2>Let's talk</h2>
         <p>Hiring, or have a project in mind? Pick a time for a free 45-minute intro call.</p>
-        <div class="cta__actions"><a class="btn btn--light" href="book.html">Book a call</a><a class="btn btn--ghost-light" href="mailto:chrisenussbaum@gmail.com">Email me</a></div>
+        <div class="cta__actions"><a class="btn btn--light" href="book">Book a call</a><a class="btn btn--ghost-light" href="mailto:chrisenussbaum@gmail.com">Email me</a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="projects.html">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
+      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio">Portfolio</a> · <a href="services">Services</a> · <a href="projects">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
       <p><a href="tel:+12066010535">(206) 601-0535</a> · <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> · <a href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </footer>

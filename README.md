@@ -1,6 +1,6 @@
 # Chris Nussbaum: portfolio & freelance services site
 
-A static, no-build website (HTML/CSS/JS). Open `index.html` or run `python3 -m http.server`.
+A static, no-build website (HTML/CSS/JS). Preview locally with `npx serve .` (it serves clean URLs like `/portfolio` the way GitHub Pages does). A plain `python3 -m http.server` or opening files directly will not resolve the extensionless links.
 
 ## Customize
 - **Calendly:** paste your event link into `calendlyUrl` at the top of `js/main.js`. The built-in email request form is then replaced by the Calendly scheduler, and each "Book this" button passes the service to Calendly as `utm_content`.
@@ -36,3 +36,6 @@ Design cards (`projects.html`, Design filter) show screenshots from `assets/work
 
 ## Custom domain
 The site is served at **https://christophernussbaum.com** (GitHub Pages custom domain; the `CNAME` file in the repo root holds the domain, and GoDaddy DNS points the apex to GitHub's four A records with `www` as a CNAME to `chrisenussbaum.github.io`). Canonical links, Open Graph tags, the JSON-LD data, `robots.txt`, and `sitemap.xml` all use this domain; update them together if it ever changes. GitHub Pages currently publishes from the `claude/determined-maxwell-xyn5ku` branch, so pushing to that branch deploys the site, and the `CNAME` file must stay in it.
+
+## Clean URLs
+Pages are linked and canonicalized without `.html` (`/portfolio`, `/services`, `/projects`, `/book`, and `/` for home). GitHub Pages serves `portfolio.html` at `/portfolio` automatically; a short script in each page also rewrites an old `.html` address to the clean one on the custom domain. Keep new internal links, canonical tags, `og:url`, and `sitemap.xml` entries extensionless.

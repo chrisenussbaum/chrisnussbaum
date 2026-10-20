@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Services | Chris Nussbaum</title>
   <meta name="description" content="Freelance paid media, demand generation, HubSpot and email, landing pages, webinars, content, running programs, and resume copy improvements from Chris Nussbaum.">
-  <link rel="canonical" href="https://christophernussbaum.com/services.html">
+  <link rel="canonical" href="https://christophernussbaum.com/services">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Chris Nussbaum">
   <meta property="og:title" content="Services | Chris Nussbaum">
   <meta property="og:description" content="Freelance paid media, demand generation, HubSpot and email, landing pages, webinars, content, running programs, and resume copy improvements from Chris Nussbaum.">
-  <meta property="og:url" content="https://christophernussbaum.com/services.html">
+  <meta property="og:url" content="https://christophernussbaum.com/services">
   <meta property="og:image" content="https://christophernussbaum.com/assets/chris.webp">
   <meta property="og:image:alt" content="Chris Nussbaum smiling in a brown jacket, with a Puget Sound ferry behind him">
   <meta name="twitter:card" content="summary">
@@ -23,6 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Visitors arriving via an old ".html" address see the clean one (custom domain only)
+    (function () {
+      var h = location.hostname;
+      if (h !== 'christophernussbaum.com' && h !== 'www.christophernussbaum.com') return;
+      var p = location.pathname, c = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+      if (c !== p && window.history && history.replaceState) history.replaceState(null, '', c + location.search + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -46,13 +55,13 @@
 
   <header class="nav" id="top">
     <div class="wrap nav__inner">
-      <a href="index.html" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
+      <a href="./" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span></button>
       <nav id="menu" class="nav__links" aria-label="Primary">
-        <a href="portfolio.html" class="nav__link">Portfolio</a>
-        <a href="services.html" class="nav__link is-active" aria-current="page">Services</a>
-        <a href="projects.html" class="nav__link">Projects</a>
-        <a href="book.html" class="btn btn--small">Book a call</a>
+        <a href="portfolio" class="nav__link">Portfolio</a>
+        <a href="services" class="nav__link is-active" aria-current="page">Services</a>
+        <a href="projects" class="nav__link">Projects</a>
+        <a href="book" class="btn btn--small">Book a call</a>
       </nav>
     </div>
   </header>
@@ -74,35 +83,35 @@
             <h3>Paid Media Management</h3>
             <p>Strategy, setup, and optimization of LinkedIn, Google, and Meta Ads, built around qualified leads rather than clicks.</p>
             <ul><li>Audience &amp; keyword strategy</li><li>Creative and copy testing</li><li>Monthly performance reporting</li></ul>
-            <a href="book.html?service=Paid%20Media%20Management" class="card__link">Book this →</a>
+            <a href="book?service=Paid%20Media%20Management" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-target"/></svg></div>
             <h3>Demand Generation Programs</h3>
             <p>End-to-end campaigns from planning to launch to analysis, aligned with your sales team's pipeline goals.</p>
             <ul><li>Multi-channel campaign plans</li><li>Lead capture &amp; nurture flows</li><li>Sales follow-up alignment</li></ul>
-            <a href="book.html?service=Demand%20Generation%20Programs" class="card__link">Book this →</a>
+            <a href="book?service=Demand%20Generation%20Programs" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-mail"/></svg></div>
             <h3>Email &amp; HubSpot Operations</h3>
             <p>Email programs, automation workflows, segmentation, and database hygiene in HubSpot, built to be measured and maintained.</p>
             <ul><li>Workflow &amp; automation builds</li><li>Segmentation &amp; A/B testing</li><li>CRM clean-up &amp; reporting</li></ul>
-            <a href="book.html?service=Email%20%26%20HubSpot%20Operations" class="card__link">Book this →</a>
+            <a href="book?service=Email%20%26%20HubSpot%20Operations" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-mic"/></svg></div>
             <h3>Webinars &amp; Events</h3>
             <p>Promotion, registration workflows, live facilitation, and post-event follow-up that turns attendees into conversations.</p>
             <ul><li>Promotion plan &amp; invitations</li><li>Registration &amp; reminders</li><li>Post-event reporting</li></ul>
-            <a href="book.html?service=Webinars%20%26%20Events" class="card__link">Book this →</a>
+            <a href="book?service=Webinars%20%26%20Events" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-pen"/></svg></div>
             <h3>Content &amp; Social Media</h3>
             <p>Case studies, guides, sales enablement collateral, and social strategy that has grown a company following from 10K to 40K.</p>
             <ul><li>Case studies &amp; one-pagers</li><li>LinkedIn, Facebook &amp; X</li><li>Technical writing &amp; editing</li></ul>
-            <a href="book.html?service=Content%20%26%20Social%20Media" class="card__link">Book this →</a>
+            <a href="book?service=Content%20%26%20Social%20Media" class="card__link">Book this →</a>
           </article>
         </div>
 
@@ -113,28 +122,28 @@
             <h3>Landing Pages &amp; Web Updates</h3>
             <p>Conversion-focused landing pages and website improvements using HTML, CSS, JavaScript, and HubSpot Design Manager.</p>
             <ul><li>Landing pages &amp; templates</li><li>Website content updates</li><li>Basic redesign support</li></ul>
-            <a href="book.html?service=Landing%20Pages%20%26%20Web%20Updates" class="card__link">Book this →</a>
+            <a href="book?service=Landing%20Pages%20%26%20Web%20Updates" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-browser"/></svg></div>
             <h3>Website &amp; Web App Builds</h3>
             <p>End-to-end builds from design to front end to back end, including database structure and connections to the tools you already use. I build with Claude Code and other LLM tools.</p>
             <ul><li>Design and front-end build</li><li>Database structure &amp; back end</li><li>Connectors &amp; integrations</li></ul>
-            <a href="book.html?service=Website%20%26%20Web%20App%20Builds" class="card__link">Book this →</a>
+            <a href="book?service=Website%20%26%20Web%20App%20Builds" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-phone"/></svg></div>
             <h3>App &amp; UI Design</h3>
             <p>Mobile app and interface design in Figma and FlutterFlow, from screen layouts to working prototypes.</p>
             <ul><li>Screen flows &amp; wireframes</li><li>Figma design files</li><li>FlutterFlow builds</li></ul>
-            <a href="book.html?service=App%20%26%20UI%20Design" class="card__link">Book this →</a>
+            <a href="book?service=App%20%26%20UI%20Design" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-shirt"/></svg></div>
             <h3>Custom Apparel Design</h3>
             <p>Custom designs for team, event, and community apparel, like the singlets I have designed.</p>
             <ul><li>Logo and graphic layout</li><li>Colors that match your brand or event</li><li>Singlets and other apparel</li></ul>
-            <a href="book.html?service=Custom%20Apparel%20Design" class="card__link">Book this →</a>
+            <a href="book?service=Custom%20Apparel%20Design" class="card__link">Book this →</a>
           </article>
         </div>
 
@@ -145,14 +154,14 @@
             <h3>Running Programs</h3>
             <p>A training program for people preparing for distance events, backed by four years of varsity cross country and track and field.</p>
             <ul><li>Mileage plan built from your peak week</li><li>Base, strength, peak, and taper phases</li><li>Workouts, core, stretching, and strength routines</li></ul>
-            <a href="book.html?service=Running%20Programs" class="card__link">Book this →</a>
+            <a href="book?service=Running%20Programs" class="card__link">Book this →</a>
           </article>
           <article class="card">
             <div class="card__icon" aria-hidden="true"><svg class="icon"><use href="#i-doc"/></svg></div>
             <h3>Resume Copy Improvements</h3>
             <p>Sharper resume wording that leads with results and fits the roles you're going after, from someone who writes marketing copy for a living.</p>
             <ul><li>Stronger, results-focused bullets</li><li>Clear, concise wording</li><li>Tailored to your target role</li></ul>
-            <a href="book.html?service=Resume%20Copy%20Improvements" class="card__link">Book this →</a>
+            <a href="book?service=Resume%20Copy%20Improvements" class="card__link">Book this →</a>
           </article>
         </div>
 
@@ -170,14 +179,14 @@
       <div class="wrap">
         <h2>Not sure which service fits?</h2>
         <p>Book a free call and we'll work it out together.</p>
-        <div class="cta__actions"><a class="btn btn--light" href="book.html">Book a free call</a></div>
+        <div class="cta__actions"><a class="btn btn--light" href="book">Book a free call</a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="projects.html">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
+      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio">Portfolio</a> · <a href="services">Services</a> · <a href="projects">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
       <p><a href="tel:+12066010535">(206) 601-0535</a> · <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> · <a href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </footer>

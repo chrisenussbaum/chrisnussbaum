@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Chris Nussbaum</title>
   <meta name="description" content="Projects by Chris Nussbaum: Redapt marketing work, coded websites, the Trajectory podcast, running programs, and resume copy improvements.">
-  <link rel="canonical" href="https://christophernussbaum.com/projects.html">
+  <link rel="canonical" href="https://christophernussbaum.com/projects">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Chris Nussbaum">
   <meta property="og:title" content="Projects | Chris Nussbaum">
   <meta property="og:description" content="Projects by Chris Nussbaum: Redapt marketing work, coded websites, the Trajectory podcast, running programs, and resume copy improvements.">
-  <meta property="og:url" content="https://christophernussbaum.com/projects.html">
+  <meta property="og:url" content="https://christophernussbaum.com/projects">
   <meta property="og:image" content="https://christophernussbaum.com/assets/chris.webp">
   <meta property="og:image:alt" content="Chris Nussbaum smiling in a brown jacket, with a Puget Sound ferry behind him">
   <meta name="twitter:card" content="summary">
@@ -23,6 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Visitors arriving via an old ".html" address see the clean one (custom domain only)
+    (function () {
+      var h = location.hostname;
+      if (h !== 'christophernussbaum.com' && h !== 'www.christophernussbaum.com') return;
+      var p = location.pathname, c = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+      if (c !== p && window.history && history.replaceState) history.replaceState(null, '', c + location.search + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -30,13 +39,13 @@
 
   <header class="nav" id="top">
     <div class="wrap nav__inner">
-      <a href="index.html" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
+      <a href="./" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span></button>
       <nav id="menu" class="nav__links" aria-label="Primary">
-        <a href="portfolio.html" class="nav__link">Portfolio</a>
-        <a href="services.html" class="nav__link">Services</a>
-        <a href="projects.html" class="nav__link is-active" aria-current="page">Projects</a>
-        <a href="book.html" class="btn btn--small">Book a call</a>
+        <a href="portfolio" class="nav__link">Portfolio</a>
+        <a href="services" class="nav__link">Services</a>
+        <a href="projects" class="nav__link is-active" aria-current="page">Projects</a>
+        <a href="book" class="btn btn--small">Book a call</a>
       </nav>
     </div>
   </header>
@@ -177,7 +186,7 @@
             </div>
           </article>
           <article class="sample" data-cat="coding">
-            <a class="sample__shot sample__shot--auto" href="index.html" aria-label="Go to the home page of this website">
+            <a class="sample__shot sample__shot--auto" href="./" aria-label="Go to the home page of this website">
               <img src="assets/work/this-website.webp" alt="The home page of this website: Hi, I'm Chris. Tell me what you're working on." loading="lazy" onerror="this.parentNode.classList.add('empty');this.remove()">
               <span class="sample__fallback" aria-hidden="true">This website</span>
             </a>
@@ -186,7 +195,7 @@
               <h3>This website</h3>
               <dl><dt>What it is</dt><dd>A portfolio for recruiters and a services page for freelance clients, with Calendly booking built in.</dd><dt>Who it's for</dt><dd>Hiring managers, recruiters, and anyone who wants help with marketing, web, running, or resume projects.</dd><dt>What I did</dt><dd>Design, content, and development with HTML, CSS, and JavaScript.</dd></dl>
               <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Calendly</li></ul>
-              <a class="sample__cta" href="index.html">Back to the home page →</a>
+              <a class="sample__cta" href="./">Back to the home page →</a>
             </div>
           </article>
           <!-- DESIGN -->
@@ -342,7 +351,7 @@
             </div>
           </article>
           <article class="sample" data-cat="other">
-            <a class="sample__shot sample__shot--auto" href="book.html?service=Running%20Programs" aria-label="Ask about a running program">
+            <a class="sample__shot sample__shot--auto" href="book?service=Running%20Programs" aria-label="Ask about a running program">
               <img src="assets/work/running-program.webp" alt="A running program spreadsheet with a mileage chart, weekly planner, workout guides, and strength routines" loading="lazy" onerror="this.parentNode.classList.add('empty');this.remove()">
               <span class="sample__fallback" aria-hidden="true">Running programs</span>
             </a>
@@ -351,11 +360,11 @@
               <h3>Running programs for distance events</h3>
               <dl><dt>What it is</dt><dd>A customizable training spreadsheet. Enter your peak weekly mileage and race dates and it builds a week-by-week plan through base, strength, peak, and taper phases.</dd><dt>Inside</dt><dd>Daily mileage split across easy runs, workouts, and a long run; fartlek and threshold workouts; core, stretching, band, and strength routines; and a mileage log to track progress.</dd><dt>Who it's for</dt><dd>Runners training for distance events.</dd><dt>What I did</dt><dd>Built the plan structure and workout library, drawing on four years of varsity cross country and track and field.</dd></dl>
               <ul class="tags"><li>Training plans</li><li>Spreadsheet</li><li>Coaching</li></ul>
-              <a class="sample__cta" href="book.html?service=Running%20Programs">Ask about a program →</a>
+              <a class="sample__cta" href="book?service=Running%20Programs">Ask about a program →</a>
             </div>
           </article>
           <article class="sample" data-cat="other">
-            <a class="sample__shot sample__shot--auto" href="book.html?service=Resume%20Copy%20Improvements" aria-label="Ask about resume copy improvements">
+            <a class="sample__shot sample__shot--auto" href="book?service=Resume%20Copy%20Improvements" aria-label="Ask about resume copy improvements">
               <img src="assets/work/resume-copy.webp" alt="A resume with a professional summary, education, and employment history bullets" loading="lazy" onerror="this.parentNode.classList.add('empty');this.remove()">
               <span class="sample__fallback" aria-hidden="true">Resume copy</span>
             </a>
@@ -364,7 +373,7 @@
               <h3>Resume copy improvements</h3>
               <dl><dt>What I do</dt><dd>Help people sharpen their resume wording so it leads with results, reads clearly, and fits the roles they want. Shown here: my own resume.</dd><dt>Who it's for</dt><dd>Job seekers who want their experience to read as clearly as it deserves.</dd></dl>
               <ul class="tags"><li>Copywriting</li><li>Editing</li><li>Resumes</li></ul>
-              <a class="sample__cta" href="book.html?service=Resume%20Copy%20Improvements">Ask about a review →</a>
+              <a class="sample__cta" href="book?service=Resume%20Copy%20Improvements">Ask about a review →</a>
             </div>
           </article>
         </div>
@@ -374,7 +383,7 @@
             <h3>More samples on request</h3>
             <p>Much of my work lives inside email platforms, ad accounts, and sales decks that aren't public: campaign reports, email programs, webinar plans, customer stories, and sales enablement collateral. I'm happy to walk through anonymized examples on a call.</p>
           </div>
-          <a class="btn" href="book.html">Ask for samples</a>
+          <a class="btn" href="book">Ask for samples</a>
         </aside>
       </div>
     </section>
@@ -383,7 +392,7 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="projects.html">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
+      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio">Portfolio</a> · <a href="services">Services</a> · <a href="projects">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
       <p><a href="tel:+12066010535">(206) 601-0535</a> · <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> · <a href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </footer>
