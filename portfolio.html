@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio | Chris Nussbaum</title>
   <meta name="description" content="Chris Nussbaum's portfolio: B2B marketing experience at Redapt, Microsoft, and Iterate.ai, with skills, education, and a downloadable resume.">
-  <link rel="canonical" href="https://christophernussbaum.com/portfolio.html">
+  <link rel="canonical" href="https://christophernussbaum.com/portfolio">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Chris Nussbaum">
   <meta property="og:title" content="Portfolio | Chris Nussbaum">
   <meta property="og:description" content="Chris Nussbaum's portfolio: B2B marketing experience at Redapt, Microsoft, and Iterate.ai, with skills, education, and a downloadable resume.">
-  <meta property="og:url" content="https://christophernussbaum.com/portfolio.html">
+  <meta property="og:url" content="https://christophernussbaum.com/portfolio">
   <meta property="og:image" content="https://christophernussbaum.com/assets/chris.webp">
   <meta property="og:image:alt" content="Chris Nussbaum smiling in a brown jacket, with a Puget Sound ferry behind him">
   <meta name="twitter:card" content="summary">
@@ -23,6 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // Visitors arriving via an old ".html" address see the clean one (custom domain only)
+    (function () {
+      var h = location.hostname;
+      if (h !== 'christophernussbaum.com' && h !== 'www.christophernussbaum.com') return;
+      var p = location.pathname, c = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+      if (c !== p && window.history && history.replaceState) history.replaceState(null, '', c + location.search + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -30,13 +39,13 @@
 
   <header class="nav" id="top">
     <div class="wrap nav__inner">
-      <a href="index.html" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
+      <a href="./" class="brand" aria-label="Chris Nussbaum, home">Chris<span>.</span>Nussbaum</a>
       <button class="nav__toggle" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu"><span></span><span></span></button>
       <nav id="menu" class="nav__links" aria-label="Primary">
-        <a href="portfolio.html" class="nav__link is-active" aria-current="page">Portfolio</a>
-        <a href="services.html" class="nav__link">Services</a>
-        <a href="projects.html" class="nav__link">Projects</a>
-        <a href="book.html" class="btn btn--small">Book a call</a>
+        <a href="portfolio" class="nav__link is-active" aria-current="page">Portfolio</a>
+        <a href="services" class="nav__link">Services</a>
+        <a href="projects" class="nav__link">Projects</a>
+        <a href="book" class="btn btn--small">Book a call</a>
       </nav>
     </div>
   </header>
@@ -58,7 +67,7 @@
           <div class="summary__actions">
             <a class="btn" href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Download resume (PDF)</a>
             <a class="btn btn--ghost" href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn profile ↗</a>
-            <a class="btn btn--ghost" href="book.html">Schedule a chat</a>
+            <a class="btn btn--ghost" href="book">Schedule a chat</a>
           </div>
         </div>
 
@@ -96,9 +105,9 @@
               <p class="job__label">Selected writing</p>
               <ul class="links">
                 <li><a href="https://www.redapt.com/blog" target="_blank" rel="noopener">Redapt blog ↗</a></li>
-                <li><a href="projects.html#writing">See all writing samples →</a></li>
+                <li><a href="projects#writing">See all writing samples →</a></li>
               </ul>
-              <p class="job__see">See the work: <a href="projects.html">Redapt website, social, and webinars</a></p>
+              <p class="job__see">See the work: <a href="projects">Redapt website, social, and webinars</a></p>
             </div>
           </article>
 
@@ -133,7 +142,7 @@
                 <li><a href="https://iterate.ai/blog/synthetic-data-is-here" target="_blank" rel="noopener">Synthetic Data is Here ↗</a></li>
                 <li><a href="https://iterate.ai/blog/the-fourth-wave-of-enterprise-software" target="_blank" rel="noopener">The Fourth Wave of Enterprise Software ↗</a></li>
                 <li><a href="https://iterate.ai/blog/how-to-handle-ai-bias" target="_blank" rel="noopener">Can AI Be Biased? Some Actions to Take ↗</a></li>
-                <li><a href="projects.html#writing">See all writing samples →</a></li>
+                <li><a href="projects#writing">See all writing samples →</a></li>
               </ul>
               <p class="job__label">Skills</p>
               <ul class="tags"><li>Content Creation</li><li>Market Research</li><li>Technical Writing</li><li>Competitor Analysis</li></ul>
@@ -192,14 +201,14 @@
       <div class="wrap">
         <h2>Interested in working together?</h2>
         <p>I'm open to new full-time roles. Let's set up a quick conversation.</p>
-        <div class="cta__actions"><a class="btn btn--light" href="book.html">Schedule a chat</a><a class="btn btn--ghost-light" href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Download resume</a></div>
+        <div class="cta__actions"><a class="btn btn--light" href="book">Schedule a chat</a><a class="btn btn--ghost-light" href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Download resume</a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio.html">Portfolio</a> · <a href="services.html">Services</a> · <a href="projects.html">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
+      <p>© <span id="year">2026</span> Chris Nussbaum. All rights reserved. · <a href="portfolio">Portfolio</a> · <a href="services">Services</a> · <a href="projects">Projects</a> · <a href="assets/Christopher_Nussbaum_Resume_2026.pdf" download>Resume</a></p>
       <p><a href="tel:+12066010535">(206) 601-0535</a> · <a href="mailto:chrisenussbaum@gmail.com">chrisenussbaum@gmail.com</a> · <a href="https://www.linkedin.com/in/chris-nussbaum-/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </footer>
