@@ -41,4 +41,4 @@ The site is served at **https://christophernussbaum.com** (GitHub Pages custom d
 Pages are linked and canonicalized without `.html` (`/portfolio`, `/services`, `/projects`, `/book`, and `/` for home). GitHub Pages serves `portfolio.html` at `/portfolio` automatically; a short script in each page also rewrites an old `.html` address to the clean one on the custom domain. Keep new internal links, canonical tags, `og:url`, and `sitemap.xml` entries extensionless.
 
 ## CoBldr
-The CoBldr card (Projects, Coding filter) and the "Current project" entry on the Portfolio page describe the public waitlist site at cobldr.com. The card image `assets/work/cobldr.webp` is the CoBldr logo on a purple canvas; replace it with a screenshot of the site or app when you have one.
+The CoBldr card (Projects, Coding filter) and the "Current project" entry on the Portfolio page describe the public waitlist site at cobldr.com. The card image `assets/work/cobldr.webp` is a screenshot of the web app's staging build (with the browser bar cropped off); replace it when the app changes.
